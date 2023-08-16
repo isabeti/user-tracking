@@ -1,0 +1,48 @@
+{% load static %}
+{% load sidebar_tags %}
+<aside class="main-sidebar">
+  <!-- sidebar: style can be found in sidebar.less -->
+  <section class="sidebar">
+    <!-- Sidebar user panel -->
+    <div class="user-panel">
+      <div class="pull-right image">
+        <img src="{% static 'user_tracking/dist/img/me.png' %}" class="img-circle" alt="User Image">
+      </div>
+      <div class="pull-left info">
+        <p>محمد علی ثابتی </p>
+      </div>
+    </div>
+    <!-- /.search form -->
+    <!-- sidebar menu: : style can be found in sidebar.less -->
+    <ul class="sidebar-menu">
+      <li class="header">ناوبری اصلی</li>
+      <li class="{% is_active_home_sidebar request 'user_tracking' 'home' %}">
+        <a href="{% url 'user_tracking:home' %}">
+          <i class="fa fa-home" aria-hidden="true"></i> <span>خانه</span>
+        </a>
+      </li>
+      <li class="{% is_active_visotor_sidebar request 'user_tracking' 'visitors' %}">
+        <a href="{% url 'user_tracking:visitors' %}">
+          <i class="fa fa-eye" aria-hidden="true"></i> <span>بازدید کنندگان</span>
+        </a>
+      </li>
+      <li class="{% is_active_logged_sidebar request 'user_tracking' 'users_logged' %}">
+        <a href="{% url 'user_tracking:users_logged' %}">
+          <i class="fa fa-sign-in" aria-hidden="true"></i> <span>لاگین کنندگان</span>
+        </a>
+      </li>
+      <li class="{% is_active_registered_sidebar request 'user_tracking' 'users_registered' %}">
+        <a href="{% url 'user_tracking:users_registered' %}">
+          <i class="ion ion-person-add"></i> <span>ثبت نام کنندگان</span>
+        </a>
+      </li>
+      <li class="{% is_active_settings request 'user_tracking' 'ignore_tracking' %}">
+        <a href="{% url 'user_tracking:ignore_tracking' %}">
+          <i class="fa fa-cog" aria-hidden="true"></i> <span>تنظیمات</span>
+        </a>
+      </li>
+
+    </ul>
+  </section>
+  <!-- /.sidebar -->
+</aside>

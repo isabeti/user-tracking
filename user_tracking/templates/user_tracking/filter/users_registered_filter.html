@@ -1,0 +1,53 @@
+<div class="box-header">
+  <h3 style="text-align: right;">تعداد کاربران ثبتنام کرده</h3>
+  <h5 style="text-align: right;">تعداد: {{objects.count}}</h3>
+</div><!-- /.box-header -->
+<div class="box-body">
+  <table id="example1" class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th>Full name</th>
+        <th>Username</th>
+        <th>Email</th>
+        <th>Date last login</th>
+        <th>Date joined</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for i in objects %}
+      <tr>
+        <td>{{i.get_full_name}}</td>
+        <td>{{i.username}}</td>
+        <td>{{i.email}}</td>
+        <td>{{i.last_login}}</td>
+        <td>{{i.date_joined}}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+    <tfoot>
+      <tr>
+        <th>Full name</th>
+        <th>Username</th>
+        <th>Date last login</th>
+        <th>Date joined</th>
+      </tr>
+    </tfoot>
+  </table>
+</div><!-- /.box-body -->
+
+
+{% include 'user_tracking/chart.html' %}
+
+<script>
+  $(function () {
+    $("#example1").DataTable();
+    $('#example2').DataTable({
+      "paging": true,
+      "lengthChange": false,
+      "searching": false,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false
+    });
+  });
+</script>
